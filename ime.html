@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML i CSS </title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #2e8b57;
+            text-shadow: 2px 2px 5px gray;
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            background-color: #ff7f50;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+            transform: rotate(10deg);
+            transition: transform 0.3s;
+        }
+
+        .box:hover {
+            transform: rotate(0deg) scale(1.1);
+        }
+
+        .animated-circle {
+            width: 100px;
+            height: 100px;
+            background-color: #4169e1;
+            border-radius: 50%;
+            margin: 20px auto;
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 15px rgba(0, 0, 255, 0.5);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        p {
+            color: #333;
+            max-width: 600px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>HTML CSS</h1>
+
+    <div class="box">Rotacija + Senka</div>
+
+    <div class="animated-circle"></div>
+
+    <p>Ovo je paragraf.</p>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>zad2</title>
+    <style>
+        body {
+
+            background-color: #979797;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .kruzna-slika {
+            width: 300px;
+            height: 200px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transform: rotate(-5deg);
+            transition: transform 0.5s ease;
+        }
+
+        .kruzna-slika:hover {
+            transform: rotate(5deg) scale(1.05);
+            /* Animacija pri prelasku mišem */
+        }
+
+        .kocka {
+            width: 150px;
+            height: 150px;
+            background-color: #4caf50;
+            border-radius: 20px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+            margin: 30px auto;
+            transform: rotate(15deg);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Naslov h1 sa senkom</h1>
+
+    <img src="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg" alt="Primer slike"
+        class="kruzna-slika">
+
+    <div class="kocka"></div>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque optio modi voluptas expedita. Exercitationem,
+        minima numquam eos unde in labore nesciunt fugiat dolor odit minus facere sed pariatur possimus adipisci!</p>
+</body>
+
+</html>
