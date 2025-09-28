@@ -6,39 +6,44 @@ body {
   overflow-y: scroll;
 }
 
-
 .section,
-.hero,
+.pricing,
 .about,
 .services,
-.pricing {
+.hero {
   scroll-snap-align: start;
 }
 
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
-  background-color: #fff;
+  background-color: #1B1B1B;
+  /* malo tamnije da statovi lepo svetle */
   color: #333;
 }
 
 :root {
   --black-dark: #2c3e50;
   --black-light: #34495e;
+  --accent: #d69db1;
+  --bck: #1B3C53;
+  /* neon zelena za statove */
 
   --white-squiggle: url("data:image/svg+xml,%3Csvg width='140' height='60' viewBox='0 0 140 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30C20 0 40 60 60 30C80 0 100 60 120 30C130 15 140 45 140 45' stroke='white' stroke-width='4' fill='none'/%3E%3C/svg%3E");
   --blue-squiggle: url("data:image/svg+xml,%3Csvg width='140' height='60' viewBox='0 0 140 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30C20 0 40 60 60 30C80 0 100 60 120 30C130 15 140 45 140 45' stroke='%230062FF' stroke-width='4' fill='none'/%3E%3C/svg%3E");
 }
 
+/* NAVBAR */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.945);
+  background: #45688233;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   z-index: 1000;
   backdrop-filter: blur(6px);
+  --accent: #d69db1;
 }
 
 .navbar .container {
@@ -53,7 +58,6 @@ body {
   height: 40px;
 }
 
-
 .nav h1 a {
   text-decoration: none;
 }
@@ -61,7 +65,7 @@ body {
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  background: linear-gradient(to right, #4f46e5, #3b82f6);
+  background: linear-gradient(to right, #d69db1, #ebb7c9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
@@ -74,7 +78,7 @@ body {
 }
 
 .nav-links a {
-  color: #374151;
+  color: #FFFFFF;
   text-decoration: none;
   transition: color 0.3s ease;
   font-weight: 500;
@@ -82,61 +86,41 @@ body {
 }
 
 .nav-links a:hover {
-  color: #4f46e5;
+  color: var(--accent);
 }
 
 @media only screen and (max-width:600px) {
   .nav-links {
     display: none;
   }
-
 }
 
+/* HERO */
 .hero {
   position: relative;
   height: 90vh;
   padding: 80px 20px 40px 20px;
-  background: linear-gradient(to bottom right, #2c3e50, #354758);
-  color: white;
+  background: var(--bck);
+  color: rgb(182, 26, 26);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: hidden;
   z-index: 0;
   text-align: center;
 }
 
-.hero::before,
-.hero::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.1;
-  z-index: -1;
-}
-
-.hero::before {
-  width: 300px;
-  height: 300px;
-  top: -80px;
-  left: -80px;
-  background: #ffffff;
-}
-
-.hero::after {
-  width: 250px;
-  height: 250px;
-  bottom: -110px;
-  right: -50px;
-  background: #ffffff;
-}
-
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 600px;
+  max-width: 800px;
   padding-left: 0;
   animation: fadeZoom 1s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  margin-left: clamp(24px, 10vw, 160px);
 }
 
 @keyframes fadeZoom {
@@ -152,10 +136,10 @@ body {
 }
 
 .hero-content h2 {
-  font-size: 2.8rem;
+  font-size: 4rem;
   margin-bottom: 1rem;
-  color: white;
-  font-weight: bold;
+  color: var(--accent);
+  font-weight: bolder;
 }
 
 .hero-content p {
@@ -180,122 +164,124 @@ body {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.btn {
-  padding: 0.5rem 1rem;
-  background-color: #3b82f6;
-  color: white;
-  text-decoration: none;
-  border-radius: 0.25rem;
+@media (max-width: 600px) {
+  .hero {
+    justify-content: center;
+  }
+
+  .hero-content {
+    margin-left: 0;
+    align-items: center;
+    text-align: center;
+  }
 }
 
+/* GENERIC SECTION PADDING */
 .section {
   padding: 2rem 1rem;
 }
 
+/* ========== ABOUT (NOVA STRUKTURA) ========== */
 .about {
-  position: relative;
-  height: 100vh;
-  background-color: #f8fafc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
-  overflow: hidden;
+  background: var(--bck);
+  min-height: 100vh;
+  display: block;
+  padding: clamp(48px, 6vw, 96px) clamp(20px, 6vw, 80px);
 }
 
-.about::before,
-.about::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.085;
-  z-index: 0;
-  background: #0062ff;
+.about-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.about::before {
-  width: 300px;
-  height: 300px;
-  bottom: -100px;
-  left: -60px;
+.about-lead {
+  color: #e8e8e8;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0.2px;
+  font-size: clamp(28px, 6vw, 80px);
+  margin: 0 0 28px 0;
 }
 
-.about::after {
-  width: 250px;
-  height: 250px;
-  top: -140px;
-  right: -50px;
+.about-rule {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 12px 0 36px 0;
 }
 
-.about-container {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  gap: 60px;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
+.about-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* card levo, tekst desno */
+  gap: clamp(20px, 4vw, 60px);
+  align-items: start;
+  margin-bottom: clamp(32px, 6vw, 72px);
 }
 
+/* KORISTIMO POSTOJECE .about-card, samo ga prilagodimo unutar about sekcije */
 .about-card {
-  width: 500px;
-  text-align: center;
+  width: 100%;
+  text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px;
 }
 
-
-
 .image-frame {
-  width: 220px;
-  height: 220px;
-  background-color: #92bcff;
+  width: 100%;
+  height: 180px;
+  background-color: var(--accent);
   border-radius: 1rem;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border: 2px solid #e5e7eb;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .about-card:hover .image-frame {
-  transform: scale(1.05);
-  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.3);
+  transform: scale(1.03);
+  box-shadow: 0 15px 30px rgba(214, 157, 177, 0.35);
 }
 
 .about-card h3 {
-  font-size: 2rem;
-  color: #1e3a8a;
-  margin: 20px 0 10px;
+  font-size: 1.4rem;
+  color: var(--accent);
+  margin: 16px 0 8px;
 }
-
-
 
 .about-card p {
   font-size: 1rem;
-  color: #374151;
-  line-height: 1.6;
+  color: #f3f6fa;
+  line-height: 1.65;
   max-width: 100%;
 }
 
-@media only screen and (max-width:1100) {
-  .about-card {
-    width: 300px;
-
-  }
-
-  .image-frame {
-    width: 150px;
-    height: 150px;
-  }
-
-
+/* Desna kolona: kopirajt */
+.about-copy {
+  color: #dfe6ee;
+  font-size: clamp(15px, 1.1vw, 18px);
+  line-height: 1.7;
 }
 
+.about-copy p {
+  margin: 0 0 14px 0;
+}
+
+/* Responsivnost za ABOUT */
+@media (max-width: 980px) {
+  .about-row {
+    grid-template-columns: 1fr;
+    /* card pa tekst ispod */
+  }
+}
+
+/* ======= SERVICES ======= */
 .services {
   position: relative;
   background: linear-gradient(to bottom right, #2c3e50, #354758);
@@ -340,16 +326,6 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-
-.services-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
@@ -417,6 +393,7 @@ body {
   }
 }
 
+/* ======= PRICING ======= */
 .pricing-grid {
   overflow: hidden;
   position: relative;
@@ -426,10 +403,8 @@ body {
   height: 85vh;
   display: flex;
   flex-direction: column;
-
   justify-content: space-between;
 }
-
 
 .pricing-grid h2 {
   font-size: 2.5rem;
@@ -451,13 +426,11 @@ body {
   padding: 30px 20px;
   font-size: 1rem;
   border: 2px solid #f8fafc;
-  /* deblje linije */
   background-color: white;
 }
 
 .pricing-header {
   background-color: #3b82f6;
-
   font-weight: bold;
   font-size: 1.2rem;
 }
@@ -498,6 +471,7 @@ body {
   right: -50px;
 }
 
+/* ======= CONTACT placeholders ======= */
 .contact form {
   display: flex;
   flex-direction: column;
@@ -512,8 +486,6 @@ body {
 
 .custom-footer {
   text-align: center;
-
-
   padding-bottom: 0.2rem;
   font-size: 0.9rem;
   color: #888;
@@ -528,4 +500,91 @@ body {
 .custom-footer .brand-name a {
   all: unset;
   cursor: pointer;
+}
+
+/* ======= SNOW overlay ======= */
+#snow-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  pointer-events: none;
+  background: transparent;
+}
+
+#snow-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ===== Site Stats (sada ABSOLUTE da ide sa hero sekcijom) ===== */
+.site-stats {
+  position: absolute;
+  right: clamp(12px, 3vw, 40px);
+  bottom: clamp(16px, 8vh, 80px);
+  display: grid;
+  gap: 28px;
+  text-align: right;
+  z-index: 10050;
+  pointer-events: none;
+}
+
+.site-stats .stat {
+  pointer-events: auto;
+}
+
+.site-stats .stat-value {
+  font-family: 'Poppins', 'Quicksand', system-ui, sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  font-size: clamp(28px, 5vw, 44px);
+  line-height: 1;
+  color: var(--accent);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .35);
+}
+
+.site-stats .stat-value span {
+  font-weight: 900;
+  opacity: 0.9;
+}
+
+.site-stats .stat-label {
+  margin-top: 6px;
+  font-size: clamp(12px, 1.4vw, 14px);
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.75);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
+}
+
+@keyframes statsFadeUp {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.site-stats .stat {
+  animation: statsFadeUp 500ms ease both;
+}
+
+.site-stats .stat:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.site-stats .stat:nth-child(3) {
+  animation-delay: 240ms;
+}
+
+/* Mobilni – po želji sakrij/pomeri */
+@media (max-width: 768px) {
+  .site-stats {
+    display: none;
+  }
 }

@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--TODO: Navbar responzivan-->
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>A&B NETive</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Poppins:wght@900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
+
+  <!-- Snow overlay -->
+  <div id="snow-overlay" aria-hidden="true">
+    <canvas id="snow-canvas"></canvas>
+  </div>
 
   <!-- NAVIGATION -->
   <header class="navbar">
@@ -28,8 +33,10 @@
     </div>
   </header>
 
+  <!-- SITE STATS (fixed, bottom-right) -->
 
-  <!-- HERO SECTION -->
+
+  <!-- HERO -->
   <section class="hero" id="hero">
     <div class="hero-content">
       <h2>Crafting Digital Excellence Through Code</h2>
@@ -38,36 +45,81 @@
         Expert development duo delivering seamless, innovative experiences.
       </p>
       <a href="#contact" class="cta-btn">Contact Us</a>
-    </div>
 
+    </div>
+    <aside class="site-stats" aria-label="Site highlights">
+      <div class="stat">
+        <div class="stat-value">3<span>+</span></div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">7<span>+</span></div>
+        <div class="stat-label">Completed Projects</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">10K<span>+</span></div>
+        <div class="stat-label">Hours Worked</div>
+      </div>
+    </aside>
   </section>
 
-  <!-- ABOUT SECTION -->
+  <!-- ABOUT -->
   <section class="about" id="about">
-    <div class="about-container">
-      <div class="about-card">
-        <div class="image-frame">
+    <div class="about-wrap">
+      <!-- Lead text -->
+      <h2 class="about-lead">
+        I believe in a user centered design approach, ensuring that every project I work on is tailored to meet the
+        specific needs of its users.
+      </h2>
+
+      <!-- Divider line -->
+      <hr class="about-rule" />
+
+      <!-- ROW 1: Card (levo) + tekst (desno) -->
+      <div class="about-row">
+        <div class="about-card">
+          <div class="image-frame"></div>
+          <h3>Branimir</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda facere blanditiis vel sint molestias.
+          </p>
         </div>
-        <h3>Branimir</h3>
-        <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam
-          assumenda facere blanditiis vel, sint molestias ipsam tempore sit atque ipsa eos non omnis harum mollitia
-          asperiores cumque cupiditate at eaque.</p>
+
+        <div class="about-copy">
+          <p>
+            I'm a frontend web developer dedicated to turning ideas into creative solutions. I specialize in creating
+            seamless and intuitive user experiences.
+          </p>
+          <p>
+            My approach focuses on scalable, high-performing solutions aligned to both user needs and business goals.
+          </p>
+        </div>
       </div>
-      <div class="about-card">
-        <div class="image-frame">
+
+      <!-- ROW 2: Card (levo) + tekst (desno) -->
+      <div class="about-row">
+        <div class="about-card">
+          <div class="image-frame"></div>
+          <h3>Andrija</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas voluptatibus maxime quas obcaecati
+            laborum
+            minus.</p>
         </div>
-        <h3>Andrija</h3>
-        <p>Mnogi bi rekli peder, ali dobar je u dusi a dobre duse mogu sta da mi rade??? Lorem ipsum dolor sit amet,
-          consectetur adipisicing elit. Recusandae, pariatur aspernatur. Voluptas voluptatibus maxime quas, obcaecati
-          laborum minus at. Laboriosam esse impedit, quos modi incidunt ullam beatae debitis nihil iste..</p>
+
+        <div class="about-copy">
+          <p>
+            We’re a small team focused on clarity and quality — clean interfaces, smooth interactions, and rock-solid
+            foundations.
+          </p>
+          <p>
+            Need a fast, modern site with thoughtful details? That’s our thing — pixel-perfect builds, sensible
+            animations, and content that shines.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-
-
-
-  <!-- SERVICES SECTION -->
+  <!-- SERVICES -->
   <section class="services" id="services">
     <div class="services-container">
       <div class="service-card">
@@ -76,7 +128,6 @@
           <h3>Web Design</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </a>
-
       </div>
       <div class="service-card">
         <a href="#pricing">
@@ -84,7 +135,6 @@
           <h3>Web Design</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </a>
-
       </div>
       <div class="service-card">
         <a href="#pricing">
@@ -92,7 +142,6 @@
           <h3>Web Design</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </a>
-
       </div>
       <div class="service-card">
         <a href="#pricing">
@@ -100,7 +149,6 @@
           <h3>Web Design</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </a>
-
       </div>
       <div class="service-card">
         <a href="#pricing">
@@ -108,13 +156,11 @@
           <h3>Web Design</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </a>
-
       </div>
     </div>
   </section>
 
-
-  <!-- PRICING SECTION -->
+  <!-- PRICING -->
   <section class="pricing-grid section" id="pricing">
     <h2>Pricing Plans</h2>
     <div class="pricing-table">
@@ -148,17 +194,11 @@
       <div class="pricing-cell">$145</div>
       <div class="pricing-cell">$225</div>
     </div>
-    <!-- FOOTER -->
+
     <div class="custom-footer">
       designed and developed by <span class="brand-name"><a href="#hero">A&amp;B NETive</a></span>
     </div>
-
   </section>
-
-
-
-
-
 
   <script src="script.js"></script>
 </body>
